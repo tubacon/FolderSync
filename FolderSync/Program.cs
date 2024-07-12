@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using FolderSync;
+
+Console.WriteLine("Copying process has been started.");
+
+Operations operations = new Operations();
+//operations.CopyNetworkFolders();
