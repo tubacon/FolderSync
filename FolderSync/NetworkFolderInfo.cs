@@ -14,5 +14,15 @@ namespace FolderSync
         public required string TargetDirectory { get; set; }
         public required string TargetUsername { get; set; }
         public required string TargetPassword { get; set; }
+
+        public static class Network
+        {
+            public static void ConnectToShare(string directory, string username, string password)
+            {
+                Console.WriteLine($"Connecting to {directory} with username {username}");
+            }
+        }
     }
+
+   
 }
