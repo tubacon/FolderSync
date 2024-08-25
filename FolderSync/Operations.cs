@@ -62,7 +62,7 @@ namespace FolderSync
             Console.WriteLine("Folders are copying.");
 
             // Copy each file into the new directory
-            foreach (FileInfo fi in source.GetFiles())
+            Parallel.ForEach(source.GetFiles(), fi =>
             {
                 var path = target.FullName + @"\" + fi.Name;
                 if (File.Exists(path))
@@ -74,7 +74,7 @@ namespace FolderSync
                     fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
                     Console.WriteLine(target.FullName + @"\" + fi.Name);
                 }
-            }
+            });
 
             // Copy each subdirectory using recursion.
             foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
